@@ -31,7 +31,7 @@ public class GUI implements ActionListener{
 			}	
 		});
 		//Male.addActionListener(this);
-		Male.setBounds(0, 0, 80, 23);
+		//Male.setBounds(0, 0, 80, 23);
 		
 		JButton Female = new JButton( new AbstractAction("Female") {
 			@Override
@@ -41,9 +41,20 @@ public class GUI implements ActionListener{
 			}	
 		});
 		//Female.addActionListener(this);
-		Female.setBounds(0, 0, 80, 23);
+		//Female.setBounds(0, 0, 80, 23);
 		
 		JTextField Age = new JTextField("Age");
+		Age.setBounds(40, 80, 40, 80);
+		
+		JButton AgeConfirm = new JButton( new AbstractAction("Set Age") {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				formulas.age = Integer.parseInt(Age.getText());
+				System.out.println("Age: " + formulas.age);
+				
+			}
+			
+		});
 		
 		panel.setBorder(BorderFactory.createEmptyBorder(200, 480, 200, 480));
 		panel.setLayout(new GridLayout(7, 4, 2, 2 ));
@@ -51,7 +62,7 @@ public class GUI implements ActionListener{
 		panel.add(Male);
 		panel.add(Female);
 		panel.add(Age);
-		
+		panel.add(AgeConfirm);
 		
 		
 		
