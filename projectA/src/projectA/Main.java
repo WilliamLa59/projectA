@@ -4,6 +4,9 @@ import java.io.File;
 public class Main {
 
 	public static void main(String[] args) {
+		
+		new GUI();
+		
 		Scanner askInput = new Scanner(System.in);
 		
 		//gets gender input
@@ -19,7 +22,7 @@ public class Main {
 		//asks whether user wants to use imperial or metric
 		System.out.println("Will you give height/weight in Metric or Imperial? ");
 		System.out.println("Answer true for metric, false for imperial: ");
-		 formulas.metric= askInput.nextBoolean();
+		formulas.metric= askInput.nextBoolean();
 		System.out.println("metric = "+formulas.metric);
 		
 		//gets height then weight in metric
