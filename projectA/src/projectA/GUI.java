@@ -1,7 +1,9 @@
 package projectA;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -29,6 +31,8 @@ public class GUI implements ActionListener{
 			}	
 		});
 		//Male.addActionListener(this);
+		Male.setBounds(0, 0, 80, 23);
+		
 		JButton Female = new JButton( new AbstractAction("Female") {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -37,16 +41,21 @@ public class GUI implements ActionListener{
 			}	
 		});
 		//Female.addActionListener(this);
+		Female.setBounds(0, 0, 80, 23);
 		
-		panel.setBorder(BorderFactory.createEmptyBorder(480, 720, 480, 720));
-		panel.setLayout(new GridLayout(0, 1));
+		JTextField Age = new JTextField("Age");
+		
+		panel.setBorder(BorderFactory.createEmptyBorder(200, 480, 200, 480));
+		panel.setLayout(new GridLayout(7, 4, 2, 2 ));
 		panel.add(GenderL);
-		panel.add(Female);
 		panel.add(Male);
+		panel.add(Female);
+		panel.add(Age);
 		
 		
 		
-		frame.add(panel, BorderLayout.CENTER);
+		
+		frame.add(panel, BorderLayout.WEST);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Basal Metabolic Rate Calculator");
 		frame.pack();
