@@ -18,7 +18,8 @@ public class GUI implements ActionListener{
 @SuppressWarnings("serial")
 
 	double bmr;
-
+	double roundedBRM;
+	
 	JButton Male;
 	JButton Female;
 	
@@ -83,7 +84,7 @@ public class GUI implements ActionListener{
 		});
 		
 		JLabel WeightL = new JLabel("Weight: ");
-		JTextField Weight = new JTextField("Weight in cm");
+		JTextField Weight = new JTextField("Weight in kg");
 		Height.setBounds(40, 80, 40, 80);
 		
 		JButton WeightConfirm = new JButton( new AbstractAction("Set Weight") {
@@ -107,7 +108,10 @@ public class GUI implements ActionListener{
 				
 				bmr = formulas.getBMR();
 				
-				BMRL.setText(String.valueOf(bmr));
+				
+				roundedBRM = Math.round(bmr * 100.0) / 100.0;
+				
+				BMRL.setText(String.valueOf(roundedBRM));
 				
 			}
 			

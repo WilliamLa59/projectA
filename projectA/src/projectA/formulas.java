@@ -63,7 +63,12 @@ public class formulas {
 	
 	public static double getBMR() {
 		
-		bmr = 66.47+(13.75*weightMetric)+(5.003*heightMetric)-(6.755*age);
+		bmr=0;
+		if (gender == "male") {
+			bmr = 66.47 + (13.75*weightMetric) + (5.003*heightMetric) - (6.755*age);
+		}else if (gender == "female") {
+			bmr = 655.1 + (9.563*weightMetric) + (1.85*heightMetric) - (4.676*age);
+		}
 		
 		return bmr;
 	}
