@@ -17,32 +17,44 @@ import javax.swing.JLabel;
 public class GUI implements ActionListener{
 @SuppressWarnings("serial")
 
+	double bmr;
+
+	JButton Male;
+	JButton Female;
+	
 	public GUI() {
 		
 		JFrame frame = new JFrame();
 		JPanel panel = new JPanel();
 		
 		JLabel GenderL = new JLabel("Gender: ");
-		JButton Male = new JButton( new AbstractAction("Male") {
+		Male = new JButton( new AbstractAction("Male") {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				formulas.gender = "male";
 				System.out.println("gender: " + formulas.gender);
+				Male.setEnabled(false);
+				Female.setEnabled(true);
 			}	
 		});
 		//Male.addActionListener(this);
 		//Male.setBounds(0, 0, 80, 23);
 		
-		JButton Female = new JButton( new AbstractAction("Female") {
+		
+		Female = new JButton( new AbstractAction("Female") {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				formulas.gender = "female";
 				System.out.println("gender: " + formulas.gender);
+				Female.setEnabled(false);
+				Male.setEnabled(true);
+				
 			}	
 		});
 		//Female.addActionListener(this);
 		//Female.setBounds(0, 0, 80, 23);
 		
+		JLabel AgeL = new JLabel("Age: ");
 		JTextField Age = new JTextField("Age");
 		Age.setBounds(40, 80, 40, 80);
 		
@@ -56,17 +68,72 @@ public class GUI implements ActionListener{
 			
 		});
 		
+		JLabel HeightL = new JLabel("Height: ");
+		JTextField Height = new JTextField("Height in cm");
+		Height.setBounds(40, 80, 40, 80);
+		
+		JButton HeightConfirm = new JButton( new AbstractAction("Set Height") {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				formulas.heightMetric = Integer.parseInt(Height.getText());
+				System.out.println("Height: " + formulas.heightMetric);
+				
+			}
+			
+		});
+		
+		JLabel WeightL = new JLabel("Weight: ");
+		JTextField Weight = new JTextField("Weight in cm");
+		Height.setBounds(40, 80, 40, 80);
+		
+		JButton WeightConfirm = new JButton( new AbstractAction("Set Weight") {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				formulas.weightMetric = Integer.parseInt(Weight.getText());
+				System.out.println("Weight: " + formulas.weightMetric);
+				
+			}
+			
+		});
+		
+		JLabel Filler = new JLabel("");
+		
+		JTextField BMRL = new JTextField("Basal Metabolic Rate");
+		BMRL.setEditable(false);
+		
+		JButton Calculate = new JButton( new AbstractAction("Calculate") {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				bmr = formulas.getBMR();
+				
+				BMRL.setText(String.valueOf(bmr));
+				
+			}
+			
+		});
+		
+		
 		panel.setBorder(BorderFactory.createEmptyBorder(200, 480, 200, 480));
-		panel.setLayout(new GridLayout(7, 4, 2, 2 ));
+		panel.setLayout(new GridLayout(15, 4, 3, 3 ));
 		panel.add(GenderL);
 		panel.add(Male);
 		panel.add(Female);
+		panel.add(AgeL);
 		panel.add(Age);
 		panel.add(AgeConfirm);
+		panel.add(HeightL);
+		panel.add(Height);
+		panel.add(HeightConfirm);
+		panel.add(WeightL);
+		panel.add(Weight);
+		panel.add(WeightConfirm);
+		panel.add(Filler);
+		panel.add(BMRL);
+		panel.add(Calculate);
 		
 		
-		
-		frame.add(panel, BorderLayout.WEST);
+		frame.add(panel, BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Basal Metabolic Rate Calculator");
 		frame.pack();
