@@ -61,4 +61,12 @@ public class formulas {
 		return bmr;
 	}
 	
+	public static double getBMR() {
+		
+		bmr = 66.47+(13.75*weightMetric)+(5.003*heightMetric)-(6.755*age);
+		
+		return bmr;
+	}
+	
+	
 }
