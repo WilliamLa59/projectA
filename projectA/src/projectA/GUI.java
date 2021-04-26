@@ -4,7 +4,10 @@ import javax.swing.JTextField;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -118,23 +121,92 @@ public class GUI implements ActionListener{
 		});
 		
 		
-		panel.setBorder(BorderFactory.createEmptyBorder(200, 480, 200, 480));
-		panel.setLayout(new GridLayout(15, 4, 3, 3 ));
-		panel.add(GenderL);
-		panel.add(Male);
-		panel.add(Female);
-		panel.add(AgeL);
-		panel.add(Age);
-		panel.add(AgeConfirm);
-		panel.add(HeightL);
-		panel.add(Height);
-		panel.add(HeightConfirm);
-		panel.add(WeightL);
-		panel.add(Weight);
-		panel.add(WeightConfirm);
-		panel.add(Filler);
-		panel.add(BMRL);
-		panel.add(Calculate);
+		panel.setBorder(BorderFactory.createEmptyBorder(100, 200, 100, 200));
+		panel.setLayout(new GridBagLayout());
+		GridBagConstraints c = new GridBagConstraints();
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 1;
+		c.gridy = 0;
+		panel.add(GenderL, c);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 1;
+		c.gridy = 1;
+		panel.add(Male, c);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.gridx = 2;
+		c.gridy = 1;
+		panel.add(Female, c);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.insets = new Insets(0,40,0,0);
+		c.gridx = 3;
+		c.gridy = 0;
+		panel.add(AgeL, c);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.insets = new Insets(0,40,0,0);
+		c.gridx = 3;
+		c.gridy = 1;
+		panel.add(Age, c);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.insets = new Insets(0,0,0,0);
+		c.gridx = 4;
+		c.gridy = 1;
+		panel.add(AgeConfirm, c);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.insets = new Insets(40,0,0,0);
+		c.gridx = 1;
+		c.gridy = 2;
+		panel.add(HeightL, c);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.insets = new Insets(0,0,0,0);
+		c.gridx = 1;
+		c.gridy = 3;
+		panel.add(Height, c);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.insets = new Insets(0,0,0,0);
+		c.gridx = 2;
+		c.gridy = 3;
+		panel.add(HeightConfirm, c);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.insets = new Insets(40,40,0,0);
+		c.gridx = 3;
+		c.gridy = 2;
+		panel.add(WeightL, c);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.insets = new Insets(0,40,0,0);
+		c.gridx = 3;
+		c.gridy = 3;
+		panel.add(Weight, c);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.insets = new Insets(0,0,0,0);
+		c.gridx = 4;
+		c.gridy = 3;
+		panel.add(WeightConfirm, c);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.anchor = GridBagConstraints.CENTER;
+		c.insets = new Insets(40,-60,0,0);
+		c.gridx = 3;
+		c.gridy = 4;
+		panel.add(BMRL, c);
+		
+		c.fill = GridBagConstraints.HORIZONTAL;
+		c.anchor = GridBagConstraints.CENTER;
+		c.insets = new Insets(0,-60,0,0);
+		c.gridx = 3;
+		c.gridy = 5;
+		panel.add(Calculate, c);
 		
 		
 		frame.add(panel, BorderLayout.CENTER);
